@@ -12,7 +12,9 @@ Create a new local dev copy
 	* set up a sql user and db for the site and create bananalink_local/sites/default/settings.php
 	* download the latest sql dump from live
 	* import the live.sql into your local db
-
+  * download the latest files tar.gz
+	* unpack into bananalink_local/sites/default/
+	* sudo chown -R www-data:www-data bananalink_local/sites/default/files
 
 TODO...  below
 

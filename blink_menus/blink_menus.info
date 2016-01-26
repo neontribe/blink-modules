@@ -1,0 +1,4 @@
+; $Id$
+name = Blink Menu Trails 
+description = Set custom menu trails for Blink.
+core = 7.x

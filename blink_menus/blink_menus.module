@@ -1,0 +1,124 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ */
+
+// TODO Spanish trails.
+
+/**
+ * Implements of hook_init().
+ *
+ * Set main menu item active by detection of side menu.
+ */ 
+function blink_menus_init() {
+  $menu_node = '';
+  $trails = menu_get_active_trail();
+  foreach($trails as $trail) {
+    if (array_key_exists('menu_name', $trail)) {
+      switch($trail['menu_name']) {
+        case 'menu-what-we-do-submenu':
+          $menu_node = 'node/73';
+          break;
+        case 'menu-all-about-bananas-submenu':
+          $menu_node = 'node/299';
+          break;
+        case 'menu-all-about-pineapples-submen':
+          $menu_node = 'node/12';
+          break;
+        case 'menu-trade-union-solidarity':
+          $menu_node = 'node/109';
+	  break;
+        case 'menu-take-action-submenu':
+          $menu_node = 'node/743';
+          break;
+        case 'menu-news-and-resources-submenu':
+          $menu_node = 'node/54';
+          break;
+      }
+    }
+  } 
+  
+  // If English.
+  if (i18n_langcode() == 'en') {
+    switch ($menu_node) {
+      case 'node/73':
+        menu_tree_set_path('main-menu', $menu_node);
+        break;
+      case 'node/299':
+        menu_tree_set_path('main-menu', $menu_node);
+        break;
+      case 'node/12':
+        menu_tree_set_path('main-menu', $menu_node);
+        break;
+      case 'node/109':
+        menu_tree_set_path('main-menu', $menu_node);
+        break;
+     case 'node/743':
+        menu_tree_set_path('main-menu', $menu_node);
+        break;
+     case 'node/54':
+        menu_tree_set_path('main-menu', $menu_node);
+        break;
+    }
+  }
+
+  // If Spanish.
+  if (i18n_langcode() == 'es') {
+    switch ($menu_node) {
+      case 'node/73':
+         menu_tree_set_path('main-menu', 'node/410');
+         break;
+      case 'node/299':
+        menu_tree_set_path('main-menu', 'node/302');
+        break;
+      case 'node/12':
+        menu_tree_set_path('main-menu', 'node/307');
+        break;
+      case 'node/109':
+        menu_tree_set_path('main-menu', 'node/381');
+        break;
+     case 'node/743':
+        menu_tree_set_path('main-menu', 'node/744');
+        break;
+     case 'node/54':
+        menu_tree_set_path('main-menu', 'node/727');
+        break;
+    }
+  }
+}
+
+/**
+ * Set menu trail by content type
+ */
+function blink_menus_node_view($node, $view_mode) {
+  $resources = array('resource', 'testimony', 'news');
+  if (in_array($node->type, $resources)) {
+    //if (field_view_field('node', $node, 'taxonomy_vocabulary_3')) {
+    if (i18n_langcode() == 'en') {
+      menu_tree_set_path('main-menu', 'node/54');
+    }
+    if (i18n_langcode() == 'es') {
+      menu_tree_set_path('main-menu', 'node/727');
+    }
+    //TODO if full node view - set path to submenu item in tax_voc_3 for resources and testimony country for textimonies
+  }
+  if ($node->type == 'testimony' && $view_mode=='full') {
+    menu_tree_set_path('menu-news-and-resources-submenu', 'node/728');
+  }
+  if ($node->type == 'resource' && $view_mode=='full') {
+    menu_tree_set_path('menu-news-and-resources-submenu', 'node/270');
+  }
+  if ($node->type == 'news' && $view_mode=='full') {  // TODO not working
+    menu_tree_set_path('menu-news-and-resources-submenu', 'news');
+  }
+  
+  //mailing list and newsletter both ref en387 and es636 set path manually
+  if ($node->nid == '387') { 
+    menu_tree_set_path('main-menu', 'node/54');
+  }
+  if ($node->nid =='636') {
+    menu_tree_set_path('main-menu', 'node/727');
+  }
+}

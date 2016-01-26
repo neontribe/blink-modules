@@ -1,0 +1,41 @@
+<?php
+/**
+ * Delete duplicate entries in main menu. 
+ */
+function blink_menus_update_7002() {
+  $main_items = menu_load_links('main-menu');
+  $sub_menus = array(
+    'menu-what-we-do-submenu',
+    'menu-all-about-bananas-submenu',
+    'menu-all-about-pineapples-submen',
+    'menu-news-and-resources-submenu',
+    'menu-trade-union-solidarity',
+    'menu-take-action-submenu',
+  );
+  $sub_titles = array();
+  foreach ($sub_menus as $menu) {
+    $sub_items = menu_load_links($menu);
+    foreach ($sub_items as $item) {
+      $sub_titles[] = $item['link_title'];
+      drupal_set_message($item['link_title']);
+    }
+  }
+  foreach($main_items as $item) {
+    if (in_array($item['link_title'], $sub_titles)) {
+      menu_link_delete($item['mlid']);
+      drupal_set_message($item['link_title']);
+    }
+  }
+}
+
+function blink_menus_update_7003() {
+  $sub_menu_links = menu_load_links('menu-what-we-do-submenu');
+  foreach ($sub_menu_links as $link) {
+    if ($link['plid'] == 0) {
+      $item = menu_link_load($link['mlid']);
+      $item['plid'] = 5653;
+      menu_link_save($item);
+      drupal_set_message($link['link_title'] . ' saved.');
+    }
+  }
+}

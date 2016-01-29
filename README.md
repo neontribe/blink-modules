@@ -39,7 +39,7 @@ Deploy to Release Candidate (todo auto on release tag)
 Deploy to Production (manual flip symlink to approved rc release)
 ====================
   * cd to live site dir
-  * `drush en readonlymode`
+  * `drush dl readonlymode` and `drush en readonlymode`
   * mysqldump latest.sql
   * rsync sites/default/files FROM live TO rc
   * `rm rc && ln -s no_rc rc`

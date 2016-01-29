@@ -52,10 +52,10 @@ projects[wysiwyg][version] = "2.2"
 projects[zen][version] = "5.6"
 
 ; Modules
-projects[blink_menus][download][type] = "git"
-projects[blink_menus][download][url] = "git://github.com/neontribe/blink_modules.git"
-projects[blink_menus][subdir] = "custom"
-projects[blink_menus][type] = "module"
+projects[blink_modules][download][type] = "git"
+projects[blink_modules][download][url] = "git://github.com/neontribe/blink_modules.git"
+projects[blink_modules][subdir] = "custom"
+projects[blink_modules][type] = "module"
 
 ; Themes
 projects[bananalink][download][type] = "git"

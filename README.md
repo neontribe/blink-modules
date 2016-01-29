@@ -1,19 +1,19 @@
 Dev Dependencies
 =================
   * LAMP stack
-	* Drush
+  * Drush
 
 Create a new local dev copy
 ===========================
   * download a copy of the latest makefile blink.make to your ~/.drush (from this repo)
-	* cd to local webserver site directory (e.g. /var/www)
-	* run `drush make --working-copy ~/.drush/blink.make bananalink_local`
-	* set up a sql user and db for the site and create bananalink_local/sites/default/settings.php
-	* download the latest sql dump from live
-	* import the live.sql into your local db
+  * cd to local webserver site directory (e.g. /var/www)
+  * run `drush make --working-copy ~/.drush/blink.make bananalink_local`
+  * set up a sql user and db for the site and create bananalink_local/sites/default/settings.php
+  * download the latest sql dump from live
+  * import the live.sql into your local db
   * download the latest files tar.gz
-	* unpack into bananalink_local/sites/default/
-	* sudo chown -R www-data:www-data bananalink_local/sites/default/files
+  * unpack into bananalink_local/sites/default/
+  * sudo chown -R www-data:www-data bananalink_local/sites/default/files
 
 
 Deploy to Heroku for testing (todo auto on pull req merge)
@@ -33,7 +33,7 @@ Deploy to Heroku for testing (todo auto on pull req merge)
 Deploy to Release Candidate (todo auto on release tag)
 ===========================
   * similar to heroku but on same server as live
-	* uses dr_blink_rc database and user for now do not need to create versioned db
+  * uses dr_blink_rc database and user for now do not need to create versioned db
 
 
 Deploy to Production (manual flip symlink to approved rc release)

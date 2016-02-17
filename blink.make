@@ -48,6 +48,8 @@ projects[widgets][version] = "1.0-rc1"
 
 projects[wysiwyg][version] = "2.2"
 
+projects[link][version] = "1.4"
+
 ; Themes
 projects[zen][version] = "5.6"
 
@@ -61,4 +63,3 @@ projects[blink_modules][type] = "module"
 projects[bananalink][download][type] = "git"
 projects[bananalink][download][url] = "git://github.com/neontribe/blink_theme.git"
 projects[bananalink][type] = "theme"
-

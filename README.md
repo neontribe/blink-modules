@@ -2,6 +2,7 @@ Dev Dependencies
 =================
   * LAMP stack
   * Drush
+  * https://github.com/jhedstrom/drupalextension
 
 Create a new local dev copy
 ===========================
@@ -13,6 +14,8 @@ Create a new local dev copy
   * import the live.sql into your local db
   * download the latest files tar.gz
   * unpack into bananalink_local/sites/default/
+  // TODO incorporate this into the make and update
+  * download and unpack CKEditor 3.6.4 into /sites/all/libraries
   * sudo chown -R www-data:www-data bananalink_local/sites/default/files
 
 
@@ -22,6 +25,8 @@ Deploy to Heroku for testing (todo auto on pull req merge)
   * on heroku: log in to mysql and  `GRANT ALL PRIVILEGES ON dr_blink_test.* To 'dr_blink_test'@'localhost' IDENTIFIED BY 'dr_blink_test';`
   * on live: cd to sites/deafult and `tar -cf latest.tar.gz` then scp
   * on live: dump latest.sql and scp
+  // TODO incorporate this into the make and update
+  * download and unpack CKEditor 3.6.4 into /sites/all/libraries
   * on heroku: cd into sites/default and unpack latest.tar.gz
   * on heroku: chown -R www-data:www-data files dir
   * on heroku: create settings.php with dr_blink_test db credentials and chmod 444
@@ -42,6 +47,7 @@ Deploy to Production (manual flip symlink to approved rc release)
   * `drush dl readonlymode` and `drush en readonlymode`
   * mysqldump latest.sql
   * rsync sites/default/files FROM live TO rc
+  * cp sites/all/libraries/ckeditor FROM live TO rc
   * `rm rc && ln -s no_rc rc`
   * copy sites/default/settings.php FROM live TO v0.0.0 (approved rc target dir)
   * copy robots.txt FROM live to v0.0.0

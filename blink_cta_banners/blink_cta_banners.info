@@ -1,0 +1,4 @@
+name = Blink Call to Action Banners
+description = Add call to action banner view.
+core = 7.x
+package = Bananalink

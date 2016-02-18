@@ -37,8 +37,15 @@ Deploy to Heroku for testing (todo auto on pull req merge)
 
 Deploy to Release Candidate (todo auto on release tag)
 ===========================
-  * similar to heroku but on same server as live
+  * drush make blink.make v0.x.x
   * uses dr_blink_rc database and user for now do not need to create versioned db
+  * cp settings.php from no_rc into sites/default/
+  * import latest.sql (drush sqlc, source /var/home/bananalink/latest.sql)
+  * cp ckeditor library from /var/home/bananlink/sites/all/libraries into v0.x.x
+  * cp robots.txt from no_rc
+  * cp -r files from live
+  * drush updb
+  * rm rc && ln -s v0.x.x rc
 
 
 Deploy to Production (manual flip symlink to approved rc release)

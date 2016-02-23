@@ -52,14 +52,11 @@ Deploy to Production (manual flip symlink to approved rc release)
 ====================
   * cd to live site dir
   * `drush dl readonlymode` and `drush en readonlymode`
-  * mysqldump latest.sql
   * rsync sites/default/files FROM live TO rc
   * cp sites/all/libraries/ckeditor FROM live TO rc
   * `rm rc && ln -s no_rc rc`
   * copy sites/default/settings.php FROM live TO v0.0.0 (approved rc target dir)
   * copy robots.txt FROM live to v0.0.0
-  * cd to v0.0.0 and `drush sqlc`
-  * `source latest.sql` and exit mysql shell
   * drush pm-disable readonlymodule
   * drush updb
   * TODO - run tests?

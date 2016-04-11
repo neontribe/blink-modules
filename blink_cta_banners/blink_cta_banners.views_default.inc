@@ -130,7 +130,7 @@ function blink_cta_banners_views_default_views() {
   /* Display: Call to action banner */
   $handler = $view->new_display('block', 'Call to action banner', 'block');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['display_description'] = 'Block display of node 1038';
+  $handler->display->display_options['display_description'] = 'Block display of node 1041';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -158,7 +158,7 @@ function blink_cta_banners_views_default_views() {
   $handler->display->display_options['filters']['tnid']['id'] = 'tnid';
   $handler->display->display_options['filters']['tnid']['table'] = 'node';
   $handler->display->display_options['filters']['tnid']['field'] = 'tnid';
-  $handler->display->display_options['filters']['tnid']['value']['value'] = '1039';
+  $handler->display->display_options['filters']['tnid']['value']['value'] = '1041';
   $translatables['single_node_banner_link'] = array(
     t('Master'),
     t('Single node banner link'),
@@ -171,7 +171,7 @@ function blink_cta_banners_views_default_views() {
     t('Edit banner content'),
     t('<a href="[field_call_link_1]"><div class="call-inner-content">[field_teaser_image]<div class="call-text"><div class="call-to-action-title">[field_call_link]</div>[body]</div></div></a>'),
     t('Call to action banner'),
-    t('Block display of node 1038'),
+    t('Block display of node 1041'),
   );
 // Add view to list of views to provide.
    $views[$view->name] = $view;
